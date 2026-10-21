@@ -1,0 +1,10 @@
+/* Esqueleto toamdo de la ia */
+/* Base: móvil */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, sans-serif; line-height: 1.6; }
+
+/* Tablet */
+@media (min-width: 768px) { }
+
+/* Escritorio */
+@media (min-width: 1024px) { }
