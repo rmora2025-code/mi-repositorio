@@ -1,10 +1,51 @@
-/* Esqueleto toamdo de la ia */
-/* Base: móvil */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: system-ui, sans-serif; line-height: 1.6; }
+/* Esqueleto tomado de la ia */
+/* ============================================
+   BREAKPOINTS RESPONSIVE
+   ============================================ */
 
-/* Tablet */
-@media (min-width: 768px) { }
+/* 1. MÓVIL / TABLET PEQUEÑA (hasta 767px) */
+@media (max-width: 767px) {
+  /* Estilos para móviles */
+  .container {
+    width: 100%;
+    padding: 0 15px;
+  }
 
-/* Escritorio */
-@media (min-width: 1024px) { }
+  .header {
+    flex-direction: column;
+  }
+
+  .nav-menu {
+    display: none; /* Se suele usar menú hamburguesa */
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 2. TABLET / ESCRITORIO PEQUEÑO (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Estilos para tablets */
+  .container {
+    width: 720px;
+    margin: 0 auto;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 3. ESCRITORIO / DESKTOP (desde 1024px) */
+@media (min-width: 1024px) {
+  /* Estilos para escritorio */
+  .container {
+    width: 960px;
+    margin: 0 auto;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
