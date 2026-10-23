@@ -1,51 +1,24 @@
 /* Esqueleto tomado de la ia */
 /* ============================================
-   BREAKPOINTS RESPONSIVE
+   BREAKPOINTS EN rem (base 16px)
+   48rem  = 768px
+   64rem  = 1024px
    ============================================ */
 
-/* 1. MÓVIL / TABLET PEQUEÑA (hasta 767px) */
-@media (max-width: 767px) {
-  /* Estilos para móviles */
-  .container {
-    width: 100%;
-    padding: 0 15px;
-  }
-
-  .header {
-    flex-direction: column;
-  }
-
-  .nav-menu {
-    display: none; /* Se suele usar menú hamburguesa */
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
+/* 1. MÓVIL */
+@media (max-width: 47.9375rem) {
+  .container { width: 100%; padding: 0 1rem; }
+  .grid { grid-template-columns: 1fr; }
 }
 
-/* 2. TABLET / ESCRITORIO PEQUEÑO (768px - 1023px) */
-@media (min-width: 768px) and (max-width: 1023px) {
-  /* Estilos para tablets */
-  .container {
-    width: 720px;
-    margin: 0 auto;
-  }
-
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* 2. TABLET */
+@media (min-width: 48rem) and (max-width: 63.9375rem) {
+  .container { width: 45rem; margin: 0 auto; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* 3. ESCRITORIO / DESKTOP (desde 1024px) */
-@media (min-width: 1024px) {
-  /* Estilos para escritorio */
-  .container {
-    width: 960px;
-    margin: 0 auto;
-  }
-
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+/* 3. ESCRITORIO */
+@media (min-width: 64rem) {
+  .container { width: 60rem; margin: 0 auto; }
+  .grid { grid-template-columns: repeat(3, 1fr); }
 }

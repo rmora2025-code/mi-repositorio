@@ -188,3 +188,16 @@ _________________________________________________________________________
         Se entiende que es mejor utilizar rem en lugar de px incluso en este contexto específico. 
         No se aplican cambios pero se hace otra consulta respecto al tema. 
 _________________________________________________________________________
+
+3.  Input: 
+        Responde brevemente si acaso es realmente mejor utilizar medidas rem en este contexto o mantener el uso de px para para los breakpoints.
+
+    Output:
+        En este contexto, **usar `rem` (o `em`) es realmente mejor que `px`**, principalmente por accesibilidad.
+
+        La razón es simple: si el usuario aumenta el tamaño de fuente predeterminado del navegador (no solo el zoom de la página), los breakpoints definidos con `rem`/`em` se ajustarán junto con el tamaño de fuente del usuario, haciendo que el diseño se adapte mejor a la legibilidad; mientras que los breakpoints en `px` permanecen fijos, pudiendo provocar que el contenido se apriete o se desborde en pantallas pequeñas .
+
+        **Pero hay un detalle**: en el contexto de media queries, `rem` y `em` son básicamente equivalentes, y algunos desarrolladores incluso recomiendan usar `em` para evitar bugs históricos de Safari . Por lo tanto, si buscas la máxima compatibilidad, `em` es una opción segura; si prefieres mantener la coherencia con la unidad tipográfica, `rem` también es completamente válido.
+
+    Reflexión y cambios a realizar:
+        Debido a las razones dadas se decide cambiar el esqueleto de los breakpoints en el css, cambiandolo por un uso de medidas en rem (bloque indicado en el punto 2.)
