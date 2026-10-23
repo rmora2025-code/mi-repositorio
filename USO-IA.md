@@ -2,6 +2,8 @@ Declaración uso IA: SI
 
 A continuación se detallará las instancias en las que se hizo uso de IA en la realización de este proyecto, declarando las entradas y salidas además de una reflexión sobre que cambios realizar.
 
+En todos los casos se utilizó la IA DeepSeek-V4-Flash
+
 1.  Input:
 
 
