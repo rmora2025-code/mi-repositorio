@@ -1,6 +1,6 @@
 Declaración uso IA: SI
 
-A continuación se detallará las instancias en las que se hizo uso de IA en la realización de este proyecto, declarando las entradas y salidas además de una reflexión sobre que cambios realizar.
+A continuación se detallan las instancias en las que se hizo uso de IA en la realización de este proyecto, declarando las entradas y salidas además de una reflexión sobre que cambios realizar.
 
 En todos los casos se utilizó la IA DeepSeek-V4-Flash
 
@@ -201,3 +201,112 @@ _________________________________________________________________________
 
     Reflexión y cambios a realizar:
         Debido a las razones dadas se decide cambiar el esqueleto de los breakpoints en el css, cambiandolo por un uso de medidas en rem (bloque indicado en el punto 2.)
+
+_________________________________________________________________________
+
+4.  Input: 
+        Tengo distintas etiquetas en mi documento html, dentro de la etiqueta main, que son todas de tipo <section> con su id correspondiente. Si necesito que cada uno de esos bloques tenga un comportamiento específico que sea igual para cada bloque, independiente de su id ¿Cómo se hace eso en el css? Y si quisiera que cada bloque, además, tuviera comportamientos "extra" que sean solo propios de cada sección (por ID) ¿cómo se hace?
+
+    Output:
+        # Seleccionar `<section>` dentro de `<main>` en CSS
+
+        ## 1️⃣ Comportamiento común a **todos** los bloques (independiente del id)
+
+        Usas un **selector de tipo** acotado al contexto de `<main>`:
+
+        ```css
+        main section {
+        /* Estilos comunes a TODAS las secciones dentro de main */
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+        border-radius: 8px;
+        background-color: #f5f5f5;
+        }
+        ```
+
+        Esto aplica a cualquier `<section>` que esté dentro de `<main>`, sin importar su `id` ni su `class`.
+
+        > 💡 Si quisieras ser más específico y **solo** aplicar a hijos directos:
+        > ```css
+        > main > section { ... }
+        > ```
+
+        ## 2️⃣ Comportamientos **extra** propios de cada sección (por id)
+
+        Añades reglas adicionales usando el **selector de id**, que se **suman** (cascadean) a las comunes:
+
+        ```css
+        /* Comunes (ya definidas arriba) */
+
+        /* Extra solo para #intro */
+        #intro {
+        background-color: #e3f2fd;
+        border-left: 4px solid #2196f3;
+        }
+
+        /* Extra solo para #servicios */
+        #servicios {
+        background-color: #e8f5e9;
+        border-left: 4px solid #4caf50;
+        }
+
+        /* Extra solo para #contacto */
+        #contacto {
+        background-color: #fff3e0;
+        border-left: 4px solid #ff9800;
+        }
+        ```
+
+        ## 📄 Ejemplo completo
+
+        ```html
+        <main>
+        <section id="intro">...</section>
+        <section id="servicios">...</section>
+        <section id="contacto">...</section>
+        </main>
+        ```
+
+        ```css
+        /* --- Común a todas --- */
+        main section {
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+        border-radius: 8px;
+        background-color: #f5f5f5;
+        }
+
+        /* --- Extra por id --- */
+        #intro     { background-color: #e3f2fd; border-left: 4px solid #2196f3; }
+        #servicios { background-color: #e8f5e9; border-left: 4px solid #4caf50; }
+        #contacto  { background-color: #fff3e0; border-left: 4px solid #ff9800; }
+        ```
+
+        ## ⚠️ Sobre especificidad y buenas prácticas
+
+        - El selector `main section` tiene especificidad **(0,0,2)** y `#intro` tiene **(1,0,0)**. El id **siempre gana**, así que los estilos extra sobrescriben los comunes cuando hay conflicto. ✅
+        - **Buena práctica:** evita abusar de `#id` en CSS porque tienen especificidad muy alta y son difíciles de sobrescribir. Una alternativa más limpia y reutilizable es usar **clases**:
+
+        ```html
+        <section id="intro" class="seccion seccion--intro">...</section>
+        <section id="servicios" class="seccion seccion--servicios">...</section>
+        ```
+
+        ```css
+        .seccion { padding: 2rem; border-radius: 8px; }
+        .seccion--intro     { background-color: #e3f2fd; }
+        .seccion--servicios { background-color: #e8f5e9; }
+        ```
+
+        Así el comportamiento común va en `.seccion` y lo específico en el modificador, con especificidad baja y fácil de mantener.
+
+        ## 📌 Resumen
+
+        | Necesidad | Selector |
+        |-----------|----------|
+        | Común a todas | `main section` |
+        | Solo hijos directos | `main > section` |
+        | Extra por sección | `#intro`, `#servicios`, ... |
+        | Alternativa recomendada | `.seccion` + `.seccion--intro` |
+
+        ¿Quieres que te lo muestre con **variables CSS** para no repetir colores, o con la variante de **clases** ya montada completa?
