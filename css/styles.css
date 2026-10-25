@@ -104,6 +104,13 @@ main section {
     background-color: #4a025e;
 }
 
+form {
+  width: 100%;
+  box-sizing: border-box; /* Evita que el padding o los bordes expandan el formulario fuera del contenedor */
+  display: block;        /* Asegura que sea un elemento de bloque que ocupa el ancho completo */
+  flex-direction: column;
+}
+
 /* Esqueleto tomado de la ia */
 /* ============================================
    BREAKPOINTS EN rem (base 16px)
