@@ -217,10 +217,10 @@ _________________________________________________________________________
         ```css
         main section {
         /* Estilos comunes a TODAS las secciones dentro de main */
-        padding: 2rem;
-        margin-bottom: 1.5rem;
-        border-radius: 8px;
-        background-color: #f5f5f5;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            background-color: #f5f5f5;
         }
         ```
 
@@ -240,20 +240,20 @@ _________________________________________________________________________
 
         /* Extra solo para #intro */
         #intro {
-        background-color: #e3f2fd;
-        border-left: 4px solid #2196f3;
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
         }
 
         /* Extra solo para #servicios */
         #servicios {
-        background-color: #e8f5e9;
-        border-left: 4px solid #4caf50;
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
         }
 
         /* Extra solo para #contacto */
         #contacto {
-        background-color: #fff3e0;
-        border-left: 4px solid #ff9800;
+            background-color: #fff3e0;
+            border-left: 4px solid #ff9800;
         }
         ```
 
@@ -261,19 +261,19 @@ _________________________________________________________________________
 
         ```html
         <main>
-        <section id="intro">...</section>
-        <section id="servicios">...</section>
-        <section id="contacto">...</section>
+            <section id="intro">...</section>
+            <section id="servicios">...</section>
+            <section id="contacto">...</section>
         </main>
         ```
 
         ```css
         /* --- Común a todas --- */
         main section {
-        padding: 2rem;
-        margin-bottom: 1.5rem;
-        border-radius: 8px;
-        background-color: #f5f5f5;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            background-color: #f5f5f5;
         }
 
         /* --- Extra por id --- */
@@ -310,3 +310,9 @@ _________________________________________________________________________
         | Alternativa recomendada | `.seccion` + `.seccion--intro` |
 
         ¿Quieres que te lo muestre con **variables CSS** para no repetir colores, o con la variante de **clases** ya montada completa?
+
+    Reflexión y cambios a realizar:
+        No se tenía del todo claro como aplicar atributos a ciertas etiquetas, se optó por evitar el uso de id y directamente usar clases para que sea más fácil de modificar en un futuro. 
+        Respecto al cambio en el css se puso en práctica el principio de que el comportamiento que se queda es el que va al final asique se hicieron bloques separados para las etiquetas principales como body seguido de header, main y footer para que exista cierta continuidad en el proyecto. 
+        Siguiendo el mismo principio se crearon distintas clases.
+        Clase "container" aparece tanto en <header>, <main> y <footer> por lo que comparten atributos. Lo que hace la diferencia entre estos tres bloques es principalmente la existencia de la clase "card" y "card-content" que se encuentra solo en la sección de proyectos dentro de <main> pero, al ser creados después entonces funcionan sin romper el resto de la página.

@@ -1,3 +1,109 @@
+* {
+  box-sizing: border-box; /* MUY IMPORTANTE: padding y border no suman al width */
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  display: flex;           /* Unidireccional, nada de cosas raras*/
+  flex-direction: column;  /* Apila los elementos uno debajo del otro */
+  min-height: 100vh;
+  background-color:rgb(255, 255, 146);
+  line-height: 1.5;
+}
+
+header,
+footer {
+    width: 100%;           /* Necesito que ocupe todo el ancho porque se ve mas bomnito */
+    background-color: #31013f;
+    color: white;
+    padding: 1rem;        /* Annade algo de aire dentro*/
+}
+
+header {
+   display: flex;
+   flex-direction: column;
+   gap: 0.5rem;
+}
+
+footer {
+    margin-top: auto;
+}
+
+nav ul {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+   display: flex;
+   flex-wrap: wrap;
+   gap: 1rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hoover {
+    text-decoration: underline; 
+}
+
+.container {
+    width: 100%;
+    padding: 0 1rem;
+}
+
+main {
+    flex: 1; /*ocupa el espacio sobrante???*/
+    width: 100%;
+    padding: 1rem 0;
+}
+
+main section {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.grid {
+    display: grid;
+    gap: 1rem; /* para la separacion entre tarjetas*/
+    margin-top: 1rem;
+}
+
+.card {
+    background-color: rgb(210, 194, 242);
+    border-radius: 10px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.card-content button {
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 0.5rem 1 rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.card-content button:hover {
+    background-color: #4a025e;
+}
+
 /* Esqueleto tomado de la ia */
 /* ============================================
    BREAKPOINTS EN rem (base 16px)
@@ -21,26 +127,4 @@
 @media (min-width: 64rem) {
   .container { width: 60rem; margin: 0 auto; }
   .grid { grid-template-columns: repeat(3, 1fr); }
-}
-
-body {
-  display: flex;           /* Unidireccional, nada de cosas raras*/
-  flex-direction: column;  /* Apila los elementos uno debajo del otro */
-  justify-content: center; /* Centra verticalmente */
-  align-items: center;     /* Centra horizontalmente */
-  margin: 0;               /* Para quitar ese espacio que quedaba arriba */
-  background-color:rgb(255, 255, 146);
-}
-
-header {
-    width: 100%;           /* Necesito que ocupe todo el ancho porque se ve mas bomnito */
-    background-color: #31013f;
-    display: flex;
-    flex-direction: column;
-    align-items: left; 
-    color: white;
-}
-
-main {
-    background-color: aqua;
 }
