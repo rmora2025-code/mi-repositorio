@@ -20,7 +20,7 @@ header,
 footer {
     width: 100%;           /* Necesito que ocupe todo el ancho porque se ve mas bomnito */
     background-color: #31013f;
-    color: white;
+    color: rgb(255, 246, 232);
     padding: 1rem;        /* Annade algo de aire dentro*/
 }
 
